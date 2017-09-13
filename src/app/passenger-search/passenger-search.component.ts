@@ -14,6 +14,7 @@ export class PassengerSearchComponent implements OnInit {
   selectedPassenger: Passenger;
   passengers: Array<Passenger> = [];
 
+  message: string;
   // private http: HttpClient;
 
   constructor(
@@ -39,7 +40,7 @@ export class PassengerSearchComponent implements OnInit {
       .get<Passenger[]>(url, { params, headers })
       .subscribe(
         passengers => { this.passengers = passengers; },
-        err => { console.error('Fehler beim Laden', err); }
+        err => { console.error('Error loading', err); }
       );
 
   }
@@ -48,4 +49,24 @@ export class PassengerSearchComponent implements OnInit {
     this.selectedPassenger = p;
   }
 
+  // Bonus-Übung
+  save() {
+    let url = 'http://www.angular.at/api/passenger';
+
+    let headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+
+    this.http
+      .post<Passenger>(url, this.selectedPassenger, { headers })
+      .subscribe(
+        p => {
+          this.selectedPassenger = p;
+          this.message = 'Successfully saved!';
+        },
+        err => {
+          console.error('Error saving', err);
+          this.message = 'Error saving passenger!';
+        }
+      );
+  }
 }
