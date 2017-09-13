@@ -1,0 +1,47 @@
+<h1>Passenger Search</h1>
+<div class="row card">
+
+  <form>
+
+    <div class="form-group">
+      <label>Name:</label>
+      <input
+        [(ngModel)]="name"
+        class="form-control"
+        name="name">
+
+    </div>
+    <div class="form-group">
+      <label>First Name:</label>
+      <input
+        [(ngModel)]="firstName"
+        name="firstName"
+        class="form-control">
+    </div>
+
+    <div class="form-group">
+      <button
+        (click)="search()"
+        [disabled]="!name || !firstName"
+        class="btn btn-default">Search</button>
+    </div>
+  </form>
+
+</div>
+
+<div class="row card" *ngIf="passengers.length > 0">
+  <table class="table table-condensed">
+    <tr *ngFor="let p of passengers" [ngClass]="{ 'active': p === selectedPassenger}">
+      <td>{{p.id}}</td>
+      <td>{{p.firstName}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.passengerStatus}}</td>
+      <td><a (click)="select(p)">Select</a></td>
+    </tr>
+  </table>
+</div>
+
+<div class="row card">
+  <pre>{{selectedPassenger | json}}</pre>
+</div>
+
