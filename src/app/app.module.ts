@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PassengerService } from './passenger-search/passenger.service';
 
 @NgModule({
   imports: [
@@ -17,7 +18,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppComponent,
     PassengerSearchComponent
   ],
-  providers: [],
+  providers: [
+    // { provide: PassengerService, useClass: PassengerService }
+    //PassengerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

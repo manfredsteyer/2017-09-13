@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../entities/passenger';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { PassengerService } from './passenger.service';
 
 @Component({
   selector: 'passenger-search',
   templateUrl: './passenger-search.component.html',
-  styleUrls: ['./passenger-search.component.css']
+  styleUrls: ['./passenger-search.component.css'],
+  providers: [PassengerService]
 })
 export class PassengerSearchComponent implements OnInit {
 
@@ -18,8 +20,9 @@ export class PassengerSearchComponent implements OnInit {
   // private http: HttpClient;
 
   constructor(
+    private passengerService: PassengerService,
     private http: HttpClient) {
-    // this.http = http;
+    console.debug('Liebesgrüße aus dem Ctor!');
   }
 
   ngOnInit() {
@@ -27,17 +30,9 @@ export class PassengerSearchComponent implements OnInit {
   }
 
   search(): void {
-    let url = 'http://www.angular.at/api/passenger';
-
-    let params = new HttpParams()
-      .set('name', this.name)
-      .set('firstName', this.firstName);
-
-    let headers = new HttpHeaders()
-      .set('Accept', 'application/json');
-
-    this.http
-      .get<Passenger[]>(url, { params, headers })
+    this
+      .passengerService
+      .find(this.name, this.firstName)
       .subscribe(
         passengers => { this.passengers = passengers; },
         err => { console.error('Error loading', err); }
