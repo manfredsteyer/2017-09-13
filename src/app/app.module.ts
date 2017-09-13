@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PassengerService } from './passenger-search/passenger.service';
+import { AbstractPassengerService } from './passenger-search/abstract-passenger.service';
+import { AnonymousPassengerService } from './passenger-search/anonymous-passenger.service';
 
 @NgModule({
   imports: [
@@ -21,6 +23,7 @@ import { PassengerService } from './passenger-search/passenger.service';
   providers: [
     // { provide: PassengerService, useClass: PassengerService }
     //PassengerService
+    { provide: AbstractPassengerService, useClass: AnonymousPassengerService }
   ],
   bootstrap: [AppComponent]
 })

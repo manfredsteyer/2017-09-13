@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../entities/passenger';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { PassengerService } from './passenger.service';
+import { AbstractPassengerService } from './abstract-passenger.service';
 
 @Component({
   selector: 'passenger-search',
   templateUrl: './passenger-search.component.html',
   styleUrls: ['./passenger-search.component.css'],
-  providers: [PassengerService]
+  // providers: [PassengerService]
 })
 export class PassengerSearchComponent implements OnInit {
 
@@ -20,7 +21,7 @@ export class PassengerSearchComponent implements OnInit {
   // private http: HttpClient;
 
   constructor(
-    private passengerService: PassengerService,
+    private passengerService: AbstractPassengerService,
     private http: HttpClient) {
     console.debug('Liebesgrüße aus dem Ctor!');
   }
