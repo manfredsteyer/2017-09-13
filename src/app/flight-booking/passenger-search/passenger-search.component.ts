@@ -12,10 +12,15 @@ import { AbstractPassengerService } from './abstract-passenger.service';
 })
 export class PassengerSearchComponent implements OnInit {
 
-  name: string;
-  firstName: string;
+  name: string = '';
+  firstName: string = '';
   selectedPassenger: Passenger;
   passengers: Array<Passenger> = [];
+
+  selection: object = {
+    1: true,
+    2: true
+  }
 
   message: string;
   // private http: HttpClient;

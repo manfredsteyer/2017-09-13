@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { PassengerService } from './passenger-search/passenger.service';
 import { AbstractPassengerService } from './passenger-search/abstract-passenger.service';
+import { PassengerCardComponent } from './passenger-card/passenger-card.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { AbstractPassengerService } from './passenger-search/abstract-passenger.
     SharedModule
   ],
   declarations: [
-    PassengerSearchComponent
+    PassengerSearchComponent,
+    PassengerCardComponent
   ],
   providers: [
     { provide: AbstractPassengerService, useClass: PassengerService },
