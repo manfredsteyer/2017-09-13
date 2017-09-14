@@ -6,7 +6,9 @@
 
   <h2>{{item.firstName}} - {{item.name}}</h2>
   <p>Flugnr. #{{item.id}}</p>
-  <p>Datum: {{item.passengerStatus | passengerStatus:'long' }}</p>
+  <p>Status #{{item.passengerStatus}}</p>
+
+  <passenger-status-toggle [(status)]="item.passengerStatus"></passenger-status-toggle>
 
   <p>
     <button class="btn btn-default" *ngIf="!selected" (click)="select()">Auswählen</button>

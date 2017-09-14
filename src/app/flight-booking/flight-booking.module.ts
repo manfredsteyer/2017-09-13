@@ -6,6 +6,7 @@ import { PassengerSearchComponent } from './passenger-search/passenger-search.co
 import { PassengerService } from './passenger-search/passenger.service';
 import { AbstractPassengerService } from './passenger-search/abstract-passenger.service';
 import { PassengerCardComponent } from './passenger-card/passenger-card.component';
+import { PassengerStatusToggleComponent } from './passenger-status-toggle/passenger-status-toggle.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { PassengerCardComponent } from './passenger-card/passenger-card.componen
   ],
   declarations: [
     PassengerSearchComponent,
-    PassengerCardComponent
+    PassengerCardComponent,
+    PassengerStatusToggleComponent
   ],
   providers: [
     { provide: AbstractPassengerService, useClass: PassengerService },
