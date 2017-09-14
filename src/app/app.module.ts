@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PassengerService } from './passenger-search/passenger.service';
 import { AbstractPassengerService } from './passenger-search/abstract-passenger.service';
 import { AnonymousPassengerService } from './passenger-search/anonymous-passenger.service';
+import { BASE_URL } from './app.tokens';
+import { PassengerStatusPipe } from './shared/passenger-status.pipe';
 
 @NgModule({
   imports: [
@@ -18,12 +20,14 @@ import { AnonymousPassengerService } from './passenger-search/anonymous-passenge
   ],
   declarations: [
     AppComponent,
-    PassengerSearchComponent
+    PassengerSearchComponent,
+    PassengerStatusPipe
   ],
   providers: [
     // { provide: PassengerService, useClass: PassengerService }
     //PassengerService
-    { provide: AbstractPassengerService, useClass: AnonymousPassengerService }
+    { provide: AbstractPassengerService, useClass: PassengerService },
+    { provide: BASE_URL, useValue: 'http://www.angular.at/api'}
   ],
   bootstrap: [AppComponent]
 })

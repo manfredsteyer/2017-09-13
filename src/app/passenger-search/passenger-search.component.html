@@ -35,8 +35,9 @@
       <td>{{p.id}}</td>
       <td>{{p.firstName}}</td>
       <td>{{p.name}}</td>
-      <td>{{p.passengerStatus}}</td>
+      <td>{{p.passengerStatus | passengerStatus:'long' }}</td>
       <td><a (click)="select(p)">Select</a></td>
+
     </tr>
   </table>
 </div>
