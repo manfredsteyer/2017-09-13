@@ -2,14 +2,17 @@
      class="card"
      [ngStyle]="{'background-color': (selected) ?  'orange' : 'lightsteelblue' }">
 
+  <ng-content select=".top"></ng-content>
+
   <h2>{{item.firstName}} - {{item.name}}</h2>
   <p>Flugnr. #{{item.id}}</p>
   <p>Datum: {{item.passengerStatus | passengerStatus:'long' }}</p>
-
-  <ng-content></ng-content>
 
   <p>
     <button class="btn btn-default" *ngIf="!selected" (click)="select()">Auswählen</button>
     <button class="btn btn-default" *ngIf="selected" (click)="deselect()">Entfernen</button>
   </p>
+
+  <ng-content select=".bottom"></ng-content>
+
 </div>

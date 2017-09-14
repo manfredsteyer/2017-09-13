@@ -34,7 +34,10 @@
   <passenger-card
       [item]="p"
       [(selected)]="selection[p.id]">
-    <pre>{{ p | json }}</pre>
+
+    <h2 class="top">Passagier</h2>
+    <pre class="bottom">{{ p | json }}</pre>
+
   </passenger-card>
 </div>
 </div>
