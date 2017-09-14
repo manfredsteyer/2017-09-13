@@ -11,6 +11,7 @@ import { AbstractPassengerService } from './passenger-search/abstract-passenger.
 import { AnonymousPassengerService } from './passenger-search/anonymous-passenger.service';
 import { BASE_URL } from './app.tokens';
 import { PassengerStatusPipe } from './shared/passenger-status.pipe';
+import { StatusColorPipe } from './shared/status-color.pipe';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { PassengerStatusPipe } from './shared/passenger-status.pipe';
   declarations: [
     AppComponent,
     PassengerSearchComponent,
-    PassengerStatusPipe
+    PassengerStatusPipe,
+    StatusColorPipe
   ],
   providers: [
     // { provide: PassengerService, useClass: PassengerService }
