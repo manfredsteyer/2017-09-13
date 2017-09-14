@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AbstractPassengerService } from './abstract-passenger.service';
 import { Observable } from 'rxjs/Observable';
-import { Passenger } from '../entities/passenger';
+import { Passenger } from '../../entities/passenger';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable()

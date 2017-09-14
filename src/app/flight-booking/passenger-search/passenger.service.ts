@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Passenger } from '../entities/passenger';
+import { Passenger } from '../../entities/passenger';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AbstractPassengerService } from './abstract-passenger.service';
-import { BASE_URL } from '../app.tokens';
+import { BASE_URL } from '../../app.tokens';
 
 @Injectable()
 export class PassengerService implements AbstractPassengerService {

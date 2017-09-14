@@ -31,7 +31,8 @@
 
 <div class="row card" *ngIf="passengers.length > 0">
   <table class="table table-condensed">
-    <tr *ngFor="let p of passengers | statusFilter:'B'" [ngClass]="{ 'active': p === selectedPassenger}">
+    <!-- | statusFilter:'B' -->
+    <tr *ngFor="let p of passengers " [ngClass]="{ 'active': p === selectedPassenger}">
       <td>{{p.id}}</td>
       <td>{{p.firstName}}</td>
       <td>{{p.name}}</td>
