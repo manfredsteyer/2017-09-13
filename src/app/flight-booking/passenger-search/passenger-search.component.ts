@@ -40,6 +40,9 @@ export class PassengerSearchComponent implements OnInit {
   }
 
   search(): void {
+
+    if (!this.name) return;
+
     this
       .passengerService
       .find(this.name, this.firstName)
