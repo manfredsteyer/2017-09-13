@@ -10,14 +10,19 @@
         class="form-control"
         name="name"
         required
+        passengerName="strict"
+        asyncPassengerName
         minlength="3">
 
       <div *ngIf="f?.controls['name']?.dirty">
         <div *ngIf="!f?.controls['name']?.valid">... Error ...</div>
+        <div *ngIf="f?.controls['name']?.hasError('passengerName')">... passengerName ...</div>
+        <div *ngIf="f?.controls['name']?.hasError('asyncPassengerName')">... asyncPassengerName ...</div>
         <div *ngIf="f?.controls['name']?.hasError('required')">... required ...</div>
         <div *ngIf="f?.controls['name']?.hasError('minlength')">... minlength ...</div>
         <div *ngIf="!f?.controls['name']?.valid"> <pre>{{ f?.controls['name']?.errors | json }}</pre></div>
       </div>
+      <div *ngIf="f?.controls['name']?.pending">... Pending ...</div>
     </div>
     <div class="form-group">
       <label>First Name:</label>
