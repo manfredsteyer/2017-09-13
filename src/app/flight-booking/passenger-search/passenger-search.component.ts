@@ -31,6 +31,10 @@ export class PassengerSearchComponent implements OnInit {
     console.debug('Liebesgrüße aus dem Ctor!');
   }
 
+  doIt(f) {
+    console.debug('f', f);
+  }
+
   ngOnInit() {
     console.debug('Komponente lebt!');
   }

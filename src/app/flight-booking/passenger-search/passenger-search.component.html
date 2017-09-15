@@ -1,15 +1,23 @@
 <h1>Passenger Search</h1>
 <div class="row card">
 
-  <form>
+  <form #f="ngForm">
 
     <div class="form-group">
       <label>Name:</label>
       <input
         [(ngModel)]="name"
         class="form-control"
-        name="name">
+        name="name"
+        required
+        minlength="3">
 
+      <div *ngIf="f?.controls['name']?.dirty">
+        <div *ngIf="!f?.controls['name']?.valid">... Error ...</div>
+        <div *ngIf="f?.controls['name']?.hasError('required')">... required ...</div>
+        <div *ngIf="f?.controls['name']?.hasError('minlength')">... minlength ...</div>
+        <div *ngIf="!f?.controls['name']?.valid"> <pre>{{ f?.controls['name']?.errors | json }}</pre></div>
+      </div>
     </div>
     <div class="form-group">
       <label>First Name:</label>
@@ -30,7 +38,9 @@
 </div>
 
 <div class="row">
+
 <div *ngFor="let p of passengers" class="col col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
   <passenger-card
       [item]="p"
       [(selected)]="selection[p.id]">
@@ -40,6 +50,7 @@
 
   </passenger-card>
 </div>
+
 </div>
 <!--
 <div class="row card" *ngIf="passengers.length > 0">

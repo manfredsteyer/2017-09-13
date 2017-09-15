@@ -1,0 +1,11 @@
+input.ng-valid {
+  border-left: solid darkseagreen 5px;
+}
+
+input.ng-invalid.ng-dirty {
+  border-left: solid darkred 5px;
+}
+
+input.ng-invalid.ng-pristine {
+  border-left: solid gainsboro 5px;
+}
